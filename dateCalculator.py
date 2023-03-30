@@ -35,6 +35,10 @@ for month in range(1, 13):
 with open(f'{args.year}.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile, delimiter='\t', quoting=csv.QUOTE_NONE, quotechar='')
     writer.writerow(['{:<20}'.format(header[0]), '{:<{}}'.format(header[1], max_payday_len), '{:<{}}'.format(header[2], max_reminder_len)])
+    print('{:<20}'.format(header[0]), '{:<{}}'.format(header[1], max_payday_len), '{:<{}}'.format(header[2], max_reminder_len))
+
     for row in rows:
         writer.writerow(['{:<20}'.format(row[0]), '{:<{}}'.format(row[1], max_payday_len), '{:<{}}'.format(row[2], max_reminder_len)])
+        print('{:<20}'.format(row[0]), '{:<{}}'.format(row[1], max_payday_len), '{:<{}}'.format(row[2], max_reminder_len))
     csvfile.close()
+print(f"Saved to {args.year}.csv file in current directory")
